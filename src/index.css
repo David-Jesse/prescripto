@@ -17,5 +17,6 @@ ul {
     text-decoration: none;
 }
 
-
-
+::-webkit-scrollbar {
+    @apply hidden;
+}

@@ -1,10 +1,12 @@
-
+import Header from "../components/Header.tsx";
+import SpecialityMenu from "../components/speciality-menu.tsx";
 
 const Home = () => {
     return (
-        <h1>
-            Home
-        </h1>
+        <div>
+            <Header />
+            <SpecialityMenu />
+        </div>
     )
 }
 
