@@ -8,6 +8,7 @@ import MyProfile from "./pages/MyProfile.tsx";
 import MyAppointments from "./pages/MyAppointments.tsx";
 import Appointment from "./pages/Appointment.tsx";
 import Navbar from "./components/Navbar.tsx";
+import Footer from "./components/footer.tsx";
 
 
 const App = () => {
@@ -25,6 +26,7 @@ const App = () => {
                 <Route path={'/my-appointments'} element={<MyAppointments />} />
                 <Route path={'/appointment/:docId'} element={<Appointment />} />
             </Routes>
+            <Footer/>
         </div>
     )
 }

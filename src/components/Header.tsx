@@ -7,7 +7,7 @@ const Header = () => {
         <div className={'flex flex-col md:flex-row flex-wrap bg-[#5f6fff] rounded-lg px-6 md:px-10 lg:px-20'}>
             {/*Left section*/}
             <div className={'md:w-1/2 flex flex-col items-start gap-4 justify-center py-10 m-auto md:py-[10vw] md:mb-[-30px]'}>
-                <p className={'text-3xl md:texl-4cl lg:text-5xl font-semibold text-white leading-tight md:leading-tight lg:leading-tight'}>
+                <p className={'text-3xl md:text-4xl lg:text-5xl font-semibold text-white leading-tight md:leading-tight lg:leading-tight'}>
                     Book Appointment <br/>
                     With Trusted Doctors
                 </p>

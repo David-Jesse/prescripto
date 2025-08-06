@@ -39,7 +39,7 @@ const Navbar = () => {
                     {({isActive}) => (
                         <>
                             <li className={'text-[#3e3238] hover:text-[#2e3238]/30 transition-all'}>ABOUT</li>
-                            <hr className={`border-none outline-none h-0.5 w-3/5 bg-[#2e3238] bg-primary m-auto mt-1.5 ${isActive ? 'block' : 'hidden'}`}/>
+                            <hr className={`border-none outline-none h-0.5 w-3/5 bg-[#2e3238] m-auto mt-1.5 ${isActive ? 'block' : 'hidden'}`}/>
                         </>
                     )}
 
