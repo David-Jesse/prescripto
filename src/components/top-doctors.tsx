@@ -1,6 +1,5 @@
 import {useNavigate} from "react-router-dom";
-import {AppContext} from "../context/AppContext.tsx";
-import {useContext} from "react";
+import {useAppContext} from "../context/AppContext.tsx";
 
 interface DoctorType {
     _id: string;
@@ -13,7 +12,7 @@ interface DoctorType {
 const TopDoctors = () => {
 
     const navigate = useNavigate();
-    const {doctors} = useContext(AppContext) as { doctors: DoctorType[] };
+    const {doctors} = useAppContext();
 
     return (
         <div className={'flex flex-col items-center gap-4 text-gray-900 my-16 md:mx-10'}>
