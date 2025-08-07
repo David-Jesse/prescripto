@@ -4,6 +4,7 @@ import {useContext} from "react";
 
 interface AppContextType {
     doctors: typeof doctors;
+    currencySymbol: string;
 }
 
 export const AppContext = createContext<AppContextType | undefined>(undefined);
@@ -15,9 +16,11 @@ interface AppContextProviderProps {
 
 const AppContextProvider = ({children}: AppContextProviderProps) => {
 
+    const currencySymbol = "$";
 
     const value: AppContextType = {
-        doctors
+        doctors,
+        currencySymbol
     }
 
     return (

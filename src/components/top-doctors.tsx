@@ -8,7 +8,6 @@ interface DoctorType {
     speciality: string;
 }
 
-
 const TopDoctors = () => {
 
     const navigate = useNavigate();
@@ -18,13 +17,17 @@ const TopDoctors = () => {
         <div className={'flex flex-col items-center gap-4 text-gray-900 my-16 md:mx-10'}>
             <h2 className={'text-3xl font-medium'}>Top Doctors to Book</h2>
             <p className={'sm:w-1/3 text-center text-sm'}>Simply browse through our extensive list of trusted
-                doctors.</p>
+                doctors.
+            </p>
 
             <div className={'w-full grid gap-4 gap-y-6 pt-5 px-3 sm:px-0'}
                  style={{gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))'}}
             >
                 {doctors.slice(0, 10).map((item: DoctorType, index) => (
-                    <div key={index} onClick={() => navigate(`/appointment/${item._id}`)}
+                    <div key={index} onClick={() => {
+                        navigate(`/appointment/${item._id}`);
+                        window.scrollTo(0, 0);
+                    }}
                          className={'border border-blue-200 rounded-xl overflow-hidden cursor-pointer hover:translate-y-[-10px] transition-all duration-400'}>
                         <img className={'bg-blue-50'} src={item.image} alt="doctors-image"/>
                         <div className={'p-4'}>
@@ -38,7 +41,13 @@ const TopDoctors = () => {
                     </div>
                 ))}
             </div>
-            <button onClick={() => {navigate('/doctors'); scrollTo(0,0)}} className={'bg-blue-50 text-gray-600 px-12 py-3 rounded-full mt-10 cursor-pointer hover:text-gray-600/200'}>more</button>
+            <button onClick={() => {
+                navigate('/doctors');
+                scrollTo(0, 0)
+            }}
+                    className={'bg-blue-50 text-gray-600 px-12 py-3 rounded-full mt-10 cursor-pointer hover:text-gray-600/200'}>
+                more
+            </button>
         </div>
     )
 }

@@ -20,6 +20,7 @@ import doc12 from './assets/doc12.png'
 import doc13 from './assets/doc13.png'
 import doc14 from './assets/doc14.png'
 import doc15 from './assets/doc15.png'
+
 export const specialityData = [
     {
         speciality: 'General physician',

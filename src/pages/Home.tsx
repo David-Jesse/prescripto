@@ -6,10 +6,10 @@ import Banner from "../components/banner.tsx";
 const Home = () => {
     return (
         <div>
-            <Header />
-            <SpecialityMenu />
-            <TopDoctors />
-            <Banner />
+            <Header/>
+            <SpecialityMenu/>
+            <TopDoctors/>
+            <Banner/>
         </div>
     )
 }
