@@ -15,7 +15,7 @@ const Login = () => {
 
     return (
         <form
-            action=""
+            action={onSubmit}
             className={'min-h-[80vh] flex justify-center items-center'}
         >
             <div
