@@ -92,7 +92,7 @@ const MyProfile = () => {
                                        }))} value={userData.address.line1} type="text"/>
                                 <br/>
                                 <input className={'bg-gray-50 text-zinc-700'} type="text"
-                                       onChange={(e) => setUserData(prev => ({
+                                       onChange={(e) => setUserData((prev: { address: any; }) => ({
                                            ...prev,
                                            address: {...prev.address, line2: e.target.value}
                                        }))} value={userData.address.line2}/>
@@ -111,7 +111,7 @@ const MyProfile = () => {
                     {
                         isEdit
                             ? <select className={'max-w-20 bg-gray-100'}
-                                      onChange={(e) => setUserData(prev => ({...prev, gender: e.target.value}))}
+                                      onChange={(e) => setUserData((prev: any) => ({...prev, gender: e.target.value}))}
                                       value={userData.gender}>
                                 <option value="Male">Male</option>
                                 <option value="Female">Female</option>
