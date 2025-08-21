@@ -1,9 +1,9 @@
-import {createContext, type ReactNode, useEffect} from 'react';
+import React, {createContext, type ReactNode, useEffect} from 'react';
 import {useContext, useState} from "react";
 import axios from "axios";
 import {toast} from "react-toastify";
 
-interface Doctor {
+export interface Doctor {
     _id: string;
     name: string;
     image?: string;
@@ -42,7 +42,7 @@ interface AppContextType {
     token: string | null;
     setToken: (token: string) => void;
     backendUrl: string;
-    setUserData: React.Dispatch<React.setStateAction<UserData | null>>;
+    setUserData: React.Dispatch<React.SetStateAction<UserData | null>>;
     userData: UserData | null;
     loadUserData: () => void;
 }

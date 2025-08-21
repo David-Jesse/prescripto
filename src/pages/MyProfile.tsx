@@ -86,20 +86,29 @@ const MyProfile = () => {
                         isEdit
                             ? <p>
                                 <input className={'bg-gray-50 text-zinc-700'}
-                                       onChange={(e) => setUserData((prev: { address: any; }) => ({
-                                           ...prev,
-                                           address: {...prev.address, line1: e.target.value}
-                                       }))} value={userData.address.line1} type="text"/>
+                                       onChange={(e) => setUserData((prev) => {
+                                           if (!prev) return prev; // Return null if prev is null
+                                           return {
+                                               ...prev,
+                                               address: {...prev.address, line1: e.target.value}
+                                           };
+                                       })}
+                                       value={userData?.address?.line1 || ''}
+                                       type="text"/>
                                 <br/>
                                 <input className={'bg-gray-50 text-zinc-700'} type="text"
-                                       onChange={(e) => setUserData((prev: { address: any; }) => ({
-                                           ...prev,
-                                           address: {...prev.address, line2: e.target.value}
-                                       }))} value={userData.address.line2}/>
+                                       onChange={(e) => setUserData((prev) => {
+                                           if (!prev) return prev; // Return null if prev is null
+                                           return {
+                                               ...prev,
+                                               address: {...prev.address, line2: e.target.value}
+                                           };
+                                       })}
+                                       value={userData?.address?.line2 || ''}/>
                             </p>
                             : <p className={'text-gray-500'}>
-                                {userData.address.line1} <br/>
-                                {userData.address.line2}
+                                {userData?.address?.line1} <br/>
+                                {userData?.address?.line2}
                             </p>
                     }
                 </div>
