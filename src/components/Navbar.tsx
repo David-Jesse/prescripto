@@ -1,17 +1,23 @@
 import logo from '../assets/logo.svg';
-import profile_pic from '../assets/profile_pic.png';
 import dropdown_icon from '../assets/dropdown_icon.svg'
 import menu_icon from '../assets/menu_icon.svg'
 import cross_icon from '../assets/cross_icon.png'
 import {NavLink, useNavigate} from "react-router-dom";
 import {useState} from "react";
+import {useAppContext} from "../context/AppContext.tsx";
 
 const Navbar = () => {
 
     const navigate = useNavigate();
 
     const [showMenu, setShowMenu] = useState<boolean>(false)
-    const [token, setToken] = useState(true)
+    const {token, setToken, userData} = useAppContext()
+
+    const logout = () => {
+        setToken('false')
+        localStorage.removeItem('token')
+    }
+
     return (
         <div className={'flex items-center justify-between text-sm py-4 mb-5 border-b border-b-gray-400'}>
             <a href="/" className={'cursor-pointer'}>
@@ -57,8 +63,8 @@ const Navbar = () => {
                 </NavLink>
             </ul>
             <div className={'flex items-center gap-[10px]'}>
-                {token ? <div className={'flex items-center gap-2 cursor-pointer group relative'}>
-                        <img className={'w-8 rounded-full'} src={profile_pic} alt="profile-picture"/>
+                {token && userData ? <div className={'flex items-center gap-2 cursor-pointer group relative'}>
+                        <img className={'w-8 rounded-full'} src={userData.image} alt="profile-picture"/>
                         <img
                             className={'w-2.5 h-auto align-middle transition-transform duration-300 group-hover:rotate-180'}
                             src={dropdown_icon} alt="dropdown-icon"/>
@@ -71,7 +77,7 @@ const Navbar = () => {
                                 <p onClick={() => navigate('my-appointment')} className={'hover:text-black cursor-pointer'}>
                                     My Appointments
                                 </p>
-                                <p onClick={() => setToken(false)} className={'hover:text-black cursor-pointer'}>
+                                <p onClick={logout} className={'hover:text-black cursor-pointer'}>
                                     Logout
                                 </p>
                             </div>
@@ -79,7 +85,7 @@ const Navbar = () => {
                     </div>
                     :
                     <button onClick={() => navigate('/login')}
-                            className={'bg-[#5f6fff] text-white px-8 py-3 rounded-full font-light md:block hidden'}>Create
+                            className={'bg-[#5f6fff] text-white px-8 py-3 rounded-full cursor-pointer font-light md:block hidden'}>Create
                         Account
                     </button>
                 }
@@ -95,7 +101,8 @@ const Navbar = () => {
                         <NavLink onClick={() => setShowMenu(false)}
                                  to={'/'}><p className={'px-4 py-2 rounded inline-block'}>HOME</p></NavLink>
                         <NavLink onClick={() => setShowMenu(false)}
-                                 to={'/doctors'}><p className={'px-4 py-2 rounded inline-block'}>ALL DOCTORS</p></NavLink>
+                                 to={'/doctors'}><p className={'px-4 py-2 rounded inline-block'}>ALL DOCTORS</p>
+                        </NavLink>
                         <NavLink onClick={() => setShowMenu(false)}
                                  to={'/about'}><p className={'px-4 py-2 rounded inline-block'}>ABOUT</p></NavLink>
                         <NavLink onClick={() => setShowMenu(false)}

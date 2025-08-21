@@ -9,11 +9,14 @@ import MyAppointments from "./pages/MyAppointments.tsx";
 import Appointment from "./pages/Appointment.tsx";
 import Navbar from "./components/Navbar.tsx";
 import Footer from "./components/footer.tsx";
+import {ToastContainer} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css'
 
 
 const App = () => {
     return (
         <div className={'mx-4 sm:mx-[10%]'}>
+            <ToastContainer/>
             <Navbar/>
             <Routes>
                 <Route path={'/'} element={<Home/>}/>
